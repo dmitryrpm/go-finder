@@ -23,8 +23,8 @@ type Pool struct {
 func NewPool(concurrency int, logger *log.Logger) *Pool {
 	p := &Pool{
 		size:   concurrency,
-		queue:  make(chan Tasker, 1),
-		result: make(chan int),
+		queue:  make(chan Tasker, concurrency),
+		result: make(chan int, concurrency),
 		log:    logger,
 	}
 	p.resultWG.Add(1)
