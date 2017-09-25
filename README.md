@@ -35,6 +35,10 @@ Total: 0
 
 **Реализация**
 
+```bash
+>> go get github.com/dmitryrpm/go-finder
+```
+
 Запускаем 5 воркеров и 3 задания (загрузка по URL)
 ```bash
 >> make run 
