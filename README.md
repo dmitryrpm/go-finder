@@ -56,11 +56,12 @@ Count for /etc/hosts: 0
 Total: 0
 ```
 
-Тесты - (finder, config - 100% coverage)
+Тесты 
 ```bash
 >> make test flags="-cover"
-  go test ./... -cover -tags=integration
-  ?       bitbucket.org/suwer/go-finder/cmd/run   [no test files]
-  ok      bitbucket.org/suwer/go-finder/config    0.001s  coverage: 100.0% of statements
-  ok      bitbucket.org/suwer/go-finder/finder    0.003s  coverage: 100.0% of statements
+go test ./... -cover -tags=integration
+ok      github.com/dmitryrpm/go-finder/cmd/run  0.003s  coverage: 64.3% of statements
+ok      github.com/dmitryrpm/go-finder/config   0.008s  coverage: 100.0% of statements
+ok      github.com/dmitryrpm/go-finder/finder   0.007s  coverage: 97.5% of statements
+
 ```
