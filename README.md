@@ -32,3 +32,35 @@ Total: 0
 
 Код должен быть написан так, чтобы его можно было легко тестировать.
 Формат предоставления решения: ссылка на github.
+
+**Реализация**
+
+Запускаем 5 воркеров и 3 задания (загрузка по URL)
+```bash
+>> make run 
+
+echo 'https://golang.org\nhttps://golang.org\nhttps://golang.org' | go run cmd/run/main.go -type url 
+Count for https://golang.org: 9
+Count for https://golang.org: 9
+Count for https://golang.org: 9
+Total: 27
+```
+
+Запускаем 1 воркер и 2 заданий (загрузка из файла) 
+```bash
+>> make run_file flags="-k=1"
+
+echo '/etc/passwd\n/etc/hosts' | go run cmd/run/main.go -type file -k=1
+Count for /etc/passwd: 0
+Count for /etc/hosts: 0
+Total: 0
+```
+
+Тесты - (finder, config - 100% coverage)
+```bash
+>> make test flags="-cover"
+  go test ./... -cover -tags=integration
+  ?       bitbucket.org/suwer/go-finder/cmd/run   [no test files]
+  ok      bitbucket.org/suwer/go-finder/config    0.001s  coverage: 100.0% of statements
+  ok      bitbucket.org/suwer/go-finder/finder    0.003s  coverage: 100.0% of statements
+```
