@@ -1,14 +1,16 @@
-// +build integration
+//+build integration
+
 package finder
 
 import (
-	"testing"
+	"fmt"
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
-	"fmt"
 	"os"
+	"testing"
+
 	"github.com/pborman/uuid"
-	"io/ioutil"
 )
 
 func TestSuccessUrl(t *testing.T) {
@@ -151,4 +153,3 @@ func TestFileDoesNotExist(t *testing.T) {
 		t.Fatalf("Count incorrect: %d != 0", count)
 	}
 }
-

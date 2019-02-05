@@ -6,17 +6,17 @@ import (
 
 func TestEmptyConfig(t *testing.T) {
 	cfg, _ := NewConfig()
-	if cfg.K != DEFAULT_K {
+	if cfg.K != DefaultCount {
 		t.Fatal("Incorrect default K")
 	}
-	if cfg.Type != DEFAULT_TYPE {
+	if cfg.Type != DefaultType {
 		t.Fatal("Incorrect default TYPE")
 	}
 }
 
 func TestValidateConfig(t *testing.T) {
 	cfg := Config{
-		K: 10,
+		K:    10,
 		Type: "url",
 	}
 	err := ValidateConfig(&cfg)

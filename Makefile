@@ -8,3 +8,7 @@ run_file:
 
 test:
 	go test ./... $(flags) -tags=integration
+
+.PHONY: lint
+lint:
+	gometalinter --config .gometalinter.json ./...

@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/dmitryrpm/go-finder/finder"
-	"github.com/dmitryrpm/go-finder/config"
-	"log"
-	"os"
 	"bufio"
 	"io"
+	"log"
+	"os"
+
+	"github.com/dmitryrpm/go-finder/config"
+	"github.com/dmitryrpm/go-finder/finder"
 )
 
 func main() {
@@ -17,7 +18,7 @@ func main() {
 	run(os.Stdin, log.New(os.Stderr, "", 0), cfg)
 }
 
-func run(reader io.Reader, stdout *log.Logger, cfg *config.Config){
+func run(reader io.Reader, stdout *log.Logger, cfg *config.Config) {
 	p := finder.NewPool(cfg.K, stdout)
 	scanner := bufio.NewScanner(reader)
 	for scanner.Scan() {

@@ -3,16 +3,17 @@
 package main
 
 import (
-	"github.com/dmitryrpm/go-finder/config"
 	"bytes"
 	"fmt"
-	"github.com/pborman/uuid"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
+
+	"github.com/dmitryrpm/go-finder/config"
+	"github.com/pborman/uuid"
 )
 
 type mockLog struct {

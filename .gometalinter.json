@@ -1,0 +1,24 @@
+{
+  "Enable": [
+    "gofmt",
+    "goimports",
+    "vet",
+    "vetshadow",
+    "gosimple",
+    "megacheck",
+    "structcheck",
+    "deadcode",
+    "varcheck",
+    "ineffassign",
+    "interfacer",
+    "unconvert",
+    "gotype"
+  ],
+  "Format": "({{.Linter}}) | {{.Severity}} | {{.Path}}:{{.Line}}:{{if .Col}}{{.Col}}{{end}} | {{.Message}}",
+  "Sort": ["linter", "severity", "path"],
+  "Vendor": true,
+  "Tests": false,
+  "EnableGC": false,
+  "LineLength": 200,
+  "Deadline": "600s"
+}

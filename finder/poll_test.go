@@ -44,7 +44,7 @@ func TestPool(t *testing.T) {
 	for i := 0; i < 5; i++ {
 		task := &mockTask{
 			Source: "http://google.com",
-			Count: 1,
+			Count:  1,
 		}
 		tasks = append(tasks, task)
 		p.Put(task)

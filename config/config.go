@@ -1,18 +1,20 @@
 package config
 
 import (
-	"flag"
 	"errors"
+	"flag"
+	"fmt"
+)
+
+const (
+	Kmax         = 1000
+	DefaultCount = 5
+	DefaultType  = "url"
 )
 
 var (
 	ValidateTypeError = errors.New("incorrect Type param (url or file)")
-	ValidateKError = errors.New("incorrect K param (1..1000)")
-)
-
-const (
-	DEFAULT_K = 5
-	DEFAULT_TYPE = "url"
+	ValidateKError    = fmt.Errorf("incorrect K param (1..%d)", Kmax)
 )
 
 func NewConfig() (*Config, error) {
@@ -20,21 +22,20 @@ func NewConfig() (*Config, error) {
 	return cfg, ValidateConfig(cfg)
 }
 
-
 func ParseConfig() *Config {
 	cfg := &Config{}
 
 	flag.IntVar(
 		&cfg.K,
 		"k",
-		DEFAULT_K,
+		DefaultCount,
 		"limit K goroutines",
 	)
 
 	flag.StringVar(
 		&cfg.Type,
 		"type",
-		DEFAULT_TYPE,
+		DefaultType,
 		"set type",
 	)
 
@@ -43,7 +44,7 @@ func ParseConfig() *Config {
 	return cfg
 }
 
-func ValidateConfig (cfg *Config) error {
+func ValidateConfig(cfg *Config) error {
 	if cfg.Type != "url" && cfg.Type != "file" {
 		return ValidateTypeError
 	}
@@ -54,7 +55,6 @@ func ValidateConfig (cfg *Config) error {
 
 	return nil
 }
-
 
 type Config struct {
 	K    int
